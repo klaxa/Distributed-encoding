@@ -9,6 +9,7 @@ Usage
 The usage is supposed to be fairly easy, however it isn't documented anywhere
 really. To run the server, you run:
 > $ python2 server.py
+
 It should then start listening for connections on the port specified in the
 sourcecode, default is 13337 (because we're just THAT 1337)
 
