@@ -15,7 +15,7 @@ sourcecode, default is 13337 (because we're just THAT 1337)
 
 The client is a bit more complicated to operate, yet easy enough to be done by
 just anyone (hopefully):
-> $ python2 client.py <host> <command> [parameters]
+> $ python2 client.py \<host\> \<command\> [parameters]
 
 The host obviously specifies the server's address, I don't think this needs any
 further explaination.
