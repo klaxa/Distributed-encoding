@@ -83,3 +83,9 @@ Why are you requiring CRCs to be stored in the filename?
 Because this is how fansubbers release their videos. I have written this code to
 re-encode videos from H264 High 10 Profile to H264 High Profile so i can play
 them on my tablet with hardware decoding without color artifacs and such shit.
+
+TODO
+----
+
+Threaded uploading of encoded files by client. This way the client can upload a
+file and already download the next chunk for uploading.
