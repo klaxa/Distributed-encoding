@@ -11,6 +11,7 @@ import Queue
 import re
 import socket
 import struct
+import sys
 import threading
 import time
 
@@ -19,7 +20,7 @@ GOPS = 7
 NETWORK_CHUNK = 4096
 DEBUG = 6
 TIMEOUT = 1800
-
+VERSION = "0.1"
 # mah spinlock
 queue_lock = False
 
@@ -35,6 +36,7 @@ server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind(('0.0.0.0', PORT))
 server.listen(10)
 
+print "Distributed encoding server version %s running on %s." % (VERSION, sys.platform)
 
 # lock specific functions
 

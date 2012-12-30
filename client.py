@@ -12,10 +12,19 @@ import sys
 import threading
 import time
 
+if sys.platform.startswith('linux'):
+	X264 = "./x264"
+elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
+	X264 = "x264.exe"
+else:
+	print "Your platform %s is not supported." % sys.platform
 PORT = 13337
 UPLOAD = True
 NETWORK_CHUNK = 4096
 DEBUG = 5
+VERSION = "0.1"
+
+print "Distributed encoding client version %s running on %s." % (VERSION, sys.platform)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -136,7 +145,7 @@ def encode(sock):
 		get_into(sock, download, size)
 		encode = get_line(sock)
 		sock.close()
-		x264_execute = "./x264 %s -o [8bit]\ %s %s" % (encode, filename, filename)
+		x264_execute = X264 + " %s -o [8bit]\ %s %s" % (encode, filename, filename)
 		info("Executing %s" % x264_execute)
 		#placebo = "mv %s [8bit]\ %s" % (filename, filename)
 		os.system(x264_execute)
