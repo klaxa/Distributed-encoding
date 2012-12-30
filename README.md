@@ -37,7 +37,7 @@ and encode. An example execution could look like this:
 > $ python2 client.py my-server.com LGN 10
 
 This would encode 10 chunks at max. The script could terminate earlier,
-because there areo chunks left. The following would encode until no chunks are
+because there are no chunks left. The following would encode until no chunks are
 left and then terminate:
 > $ python2 client.py my-server.com LGN
 
