@@ -36,9 +36,9 @@ encode it. This takes one optional argument: the number of chunks to retrieve
 and encode. An example execution could look like this:
 > $ python2 client.py my-server.com LGN 10
 
-This would encode 10 chunks at max. The script could terminate because there are
-no chunks left. The following would encode until no chunks are left and then
-terminate:
+This would encode 10 chunks at max. The script could terminate earlier,
+because there areo chunks left. The following would encode until no chunks are
+left and then terminate:
 > $ python2 client.py my-server.com LGN
 
 
@@ -58,7 +58,8 @@ and http://klaxa.in/x264.exe (Windows MinGW)
 How does it work?
 -----------------
 
-(This might go a bit further into detail than you actually care)
+(This might go a bit further into detail than you actually care.)
+
 The server script takes a file and splits it into smaller files. These files are
 ensured to be split at I Frames; they contain exactly N I Frames whereas N is
 specified in the server sourcecode as "GOPS". Obviously the video won't split up
