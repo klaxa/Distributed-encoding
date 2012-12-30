@@ -138,8 +138,8 @@ def encode(sock):
 		sock.close()
 		x264_execute = "./x264 %s -o [8bit]\ %s %s" % (encode, filename, filename)
 		info("Executing %s" % x264_execute)
-		placebo = "mv %s [8bit]\ %s" % (filename, filename)
-		os.system(placebo)
+		#placebo = "mv %s [8bit]\ %s" % (filename, filename)
+		os.system(x264_execute)
 		print address
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.connect(address)
