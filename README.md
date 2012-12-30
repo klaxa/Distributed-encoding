@@ -71,7 +71,7 @@ chunk is then sent by the server to the client, the client then encodes the
 chunk and uploads it to the server. The server checks whether or not it was the
 last chunk with the same CRC, that is hopefully stored in the filename. If it
 was, it merges all encoded files into a new file. Once files have been assiged
-they are moved into the "assigned" queue with a timestamp of its creation. In
+they are moved into the "assigned" queue with a timestamp of their creation. In
 the server source the variable "TIMEOUT" specifies after how many seconds a
 chunk is considered expired, i.e. encoding took too long to be within reasonable
 bounds. These chunks get reassigned upon the next client logon.
