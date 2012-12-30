@@ -45,8 +45,12 @@ left and then terminate:
 Requirements
 ------------
 
-The server system needs system-wide installed mkvinfo and mkvmerge executable
-files.
+The server needs mkvinfo and mkvmerge binaries in the working directory. Because
+my own server runs debian and the packages are from 2010 I went through the
+trouble to compile static binaries, you can find them here:
+http://klaxa.in/mkvtoolnix_5.90-linux-x64.tar.gz
+
+They should work on any 64-bit GNU/Linux system.
 
 The client system needs an executable x264 file in the same directory as the
 script. To ensure compatibility I compiled static x264 builds for GNU/Linux x64
@@ -89,5 +93,4 @@ TODO
 
 - Threaded uploading of encoded files by client. This way the client can upload
 a file and already download the next chunk for uploading.
-- Change the client to run on Windows and GNU/Linux instead of just GNU/Linux.
 - Change the server to run on Windows and GNU/Linux instead of just GNU/Linux.

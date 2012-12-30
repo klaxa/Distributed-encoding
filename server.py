@@ -75,7 +75,7 @@ def error(string):
 def make_chunks(filename):
 	chunks = []
 	i_frames = []
-	os.system("mkvinfo -s " + re.escape(filename) + "| grep \"track 1\" | grep I\ frame > /tmp/mkvinfo.txt")
+	os.system("./mkvinfo -s " + re.escape(filename) + "| grep \"track 1\" | grep I\ frame > /tmp/mkvinfo.txt")
 	mkvinfo = open("/tmp/mkvinfo.txt", "r")
 	line = mkvinfo.readline()
 	i_frames_num = 0
@@ -91,7 +91,7 @@ def make_chunks(filename):
 	for frame in i_frames:
 		print frame
 		timecodes += "," + frame
-	mkvmerge_execute = "mkvmerge -A -S --no-chapters -M -o split." + filename + " --split timecodes:" + timecodes[1:] + " " + filename
+	mkvmerge_execute = "./mkvmerge -A -S --no-chapters -M -o split." + filename + " --split timecodes:" + timecodes[1:] + " " + filename
 	info("Executing: " + mkvmerge_execute)
 	os.system(mkvmerge_execute)
 	files = os.listdir(".")
@@ -305,7 +305,7 @@ def concat(filename):
 		if re.match("^\[8bit\]\ split.", i) and getCRC(i) == getCRC(filename):
 			merge_files += " + " + re.escape(i)
 			info("Added %s to merge files." % i)
-	mkvmerge_execute = "mkvmerge -o %s %s" % (re.escape(re.sub("split.", "", re.sub("-[0-9]{3}.mkv", ".mkv", filename))), merge_files[3:])
+	mkvmerge_execute = "./mkvmerge -o %s %s" % (re.escape(re.sub("split.", "", re.sub("-[0-9]{3}.mkv", ".mkv", filename))), merge_files[3:])
 	info("Executing %s" % mkvmerge_execute)
 	os.system(mkvmerge_execute)
 
@@ -354,5 +354,3 @@ def main():
 		worker.start()
 
 main()
-
-
