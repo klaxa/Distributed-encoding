@@ -77,8 +77,8 @@ chunk is considered expired, i.e. encoding took too long to be within reasonable
 bounds. These chunks get reassigned upon the next client logon.
 
 
-Why are you requiring CRC's to be stored in the filename?
----------------------------------------------------------
+Why are you requiring CRCs to be stored in the filename?
+--------------------------------------------------------
 
 Because this is how fansubbers release their videos. I have written this code to
 re-encode videos from H264 High 10 Profile to H264 High Profile so i can play
