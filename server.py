@@ -91,7 +91,7 @@ def make_chunks(filename):
 	for frame in i_frames:
 		print frame
 		timecodes += "," + frame
-	mkvmerge_execute = "./mkvmerge -A -S --no-chapters -M -o split." + filename + " --split timecodes:" + timecodes[1:] + " " + filename
+	mkvmerge_execute = "./mkvmerge -A -S --no-chapters -M -o split." + re.escape(filename) + " --split timecodes:" + timecodes[1:] + " " + filename
 	info("Executing: " + mkvmerge_execute)
 	os.system(mkvmerge_execute)
 	files = os.listdir(".")
@@ -154,14 +154,13 @@ def send_file(sock, filename):
 
 def add(sock):
 	filename = get_line(sock)
-	filename = re.escape(filename)
 	info("Adding %s to encoding queue" % filename)
 	if getCRC(filename) in addedCRCs:
 		sock.send("D")
 		info("Duplicate not added.")
 		sock.close()
 		return
-	if os.path.isfile(filename.decode('string_escape')):
+	if os.path.isfile(filename):
 		sock.send("Y")
 		info("Adding new file...")
 	else:
@@ -169,7 +168,7 @@ def add(sock):
 		if get(sock, 1) == "Y":
 			info("Retrieving file from client")
 			(size,) = struct.unpack("!i", get(sock, 4))
-			download = open(filename.decode('string_escape'), "w")
+			download = open(filename, "w")
 			get_into(sock, download, size)
 			download.close()
 		else:
