@@ -91,7 +91,7 @@ def make_chunks(filename):
 	for frame in i_frames:
 		print frame
 		timecodes += "," + frame
-	mkvmerge_execute = "./mkvmerge -A -S --no-chapters -M -o split." + re.escape(filename) + " --split timecodes:" + timecodes[1:] + " " + filename
+	mkvmerge_execute = "./mkvmerge -A -S --no-chapters -M -o split." + re.escape(filename) + " --split timecodes:" + timecodes[1:] + " " + re.escape(filename)
 	info("Executing: " + mkvmerge_execute)
 	os.system(mkvmerge_execute)
 	files = os.listdir(".")
