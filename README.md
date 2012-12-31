@@ -91,6 +91,4 @@ them on my tablet with hardware decoding without color artifacs and such shit.
 TODO
 ----
 
-- Threaded uploading of encoded files by client. This way the client can upload
-a file and already download the next chunk for uploading.
 - Change the server to run on Windows and GNU/Linux instead of just GNU/Linux.

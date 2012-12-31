@@ -106,7 +106,16 @@ def send_file(sock, filename):
 		bitarte = 9001
 	info("Sent %d in %ds. (%d kB/s)" % (size, int(end - start), bitrate))
 
-
+class FileSender(threading.Thread)
+	def __init__(self, sock, filename):
+		threading.Thread.__init__(self)
+		self.sock = sock
+		self.filename = filename
+	def run(self):
+		self.sock.send("RDY")
+		self.sock.send("[8bit] " + self.filename + '\n')
+		send_file(self.sock, "[8bit] " + self.filename)
+		self.sock.close()
 # client specific functions
 
 def add(sock, filename, encode):
@@ -158,11 +167,8 @@ def encode(sock):
 		print address
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.connect(address)
-		sock.send("RDY")
-		sock.send("[8bit] " + filename + '\n')
-		send_file(sock, "[8bit] " + filename)
-		sock.close()
-
+		sender = FileSender(sock, filename)
+		sender.start()
 
 def log_on(sock, host, n):
 	if n == 0:
