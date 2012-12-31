@@ -90,5 +90,6 @@ them on my tablet with hardware decoding without color artifacs and such shit.
 
 TODO
 ----
-
+- High priority: Rewrite sockets to be non-blocking and fail and abort if
+  one of the sockets fails to respond after a certain timeout.
 - Change the server to run on Windows and GNU/Linux instead of just GNU/Linux.
