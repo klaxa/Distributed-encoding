@@ -126,7 +126,10 @@ def get_into(sock, fd, size):
 		size -= len(temp)
 		fd.write(temp)
 	end = time.time()
-	bitrate = (bytes / 1024) / (end - start)
+	if end - start > 0:
+		bitrate = (bytes / 1024) / (end - start)
+	else:
+		bitrate = 9001
 	info("Retrieved %d in %ds. (%d kB/s)" % (bytes, int(end - start), bitrate))
 	
 def get_line(sock):
@@ -147,7 +150,10 @@ def send_file(sock, filename):
 	sock.sendall(fd.read())
 	fd.close()
 	end = time.time()
-	bitrate = (size / 1024) / (end - start)
+	if end - start > 0:
+		bitrate = (size / 1024) / (end - start)
+	else:
+		bitrate = 9001
 	info("Sent %d in %ds. (%d kB/s)" % (size, int(end - start), bitrate))
 
 # server specific functions
