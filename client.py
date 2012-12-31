@@ -145,7 +145,7 @@ def encode(sock):
 		get_into(sock, download, size)
 		encode = get_line(sock)
 		sock.close()
-		x264_execute = X264 + " %s -o [8bit]\ %s %s" % (encode, filename, filename)
+		x264_execute = X264 + " %s -o [8bit]\ %s %s" % (encode, re.escape(filename), re.escape(filename))
 		info("Executing %s" % x264_execute)
 		#placebo = "mv %s [8bit]\ %s" % (filename, filename)
 		os.system(x264_execute)
