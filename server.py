@@ -161,7 +161,7 @@ def add(sock):
 		info("Duplicate not added.")
 		sock.close()
 		return
-	if os.path.isfile(filename.decode(‘string_escape’)):
+	if os.path.isfile(filename.decode('string_escape')):
 		sock.send("Y")
 		info("Adding new file...")
 	else:
@@ -169,7 +169,7 @@ def add(sock):
 		if get(sock, 1) == "Y":
 			info("Retrieving file from client")
 			(size,) = struct.unpack("!i", get(sock, 4))
-			download = open(filename.decode(‘string_escape’), "w")
+			download = open(filename.decode('string_escape'), "w")
 			get_into(sock, download, size)
 			download.close()
 		else:
