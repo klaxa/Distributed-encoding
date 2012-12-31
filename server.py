@@ -154,6 +154,7 @@ def send_file(sock, filename):
 
 def add(sock):
 	filename = get_line(sock)
+	filename = re.escape(filename)
 	info("Adding %s to encoding queue" % filename)
 	if getCRC(filename) in addedCRCs:
 		sock.send("D")
