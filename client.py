@@ -19,7 +19,7 @@ elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
 else:
 	print "Your platform %s is not supported." % sys.platform
 PORT = 13337
-UPLOAD = True
+UPLOAD = False
 NETWORK_CHUNK = 4096
 DEBUG = 5
 VERSION = "0.1"
