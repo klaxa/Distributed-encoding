@@ -106,7 +106,7 @@ def send_file(sock, filename):
 		bitarte = 9001
 	info("Sent %d in %ds. (%d kB/s)" % (size, int(end - start), bitrate))
 
-class FileSender(threading.Thread)
+class FileSender(threading.Thread):
 	def __init__(self, sock, filename):
 		threading.Thread.__init__(self)
 		self.sock = sock
