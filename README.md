@@ -92,6 +92,6 @@ TODO
 ----
 - High priority: Rewrite sockets to be non-blocking and fail and abort if
   one of the sockets fails to respond after a certain timeout.
-- Instead of splitting at a set number of GOPs, find chunks of similar lenth of
+- Instead of splitting at a set number of GOPs, find chunks of similar length of
   frames and cut at near IDR-Frames to increase load-balancing effect.
 - Change the server to run on Windows and GNU/Linux instead of just GNU/Linux.
